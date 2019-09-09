@@ -14,6 +14,7 @@ import { PAGES_ROUTES } from './pages.routes';
 //TMP
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoComponent } from '../components/grafico/grafico.component';
+import { AccountSettingComponent } from './account-setting/account-setting.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { GraficoComponent } from '../components/grafico/grafico.component';
         ProgressComponent,
         IncrementadorComponent,
         Graficas1Component,
-        GraficoComponent
+        GraficoComponent,
+        AccountSettingComponent
     ],
     imports: [
         SharedModule,
