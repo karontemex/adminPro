@@ -15,6 +15,8 @@ import { PAGES_ROUTES } from './pages.routes';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoComponent } from '../components/grafico/grafico.component';
 import { AccountSettingComponent } from './account-setting/account-setting.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +26,9 @@ import { AccountSettingComponent } from './account-setting/account-setting.compo
         IncrementadorComponent,
         Graficas1Component,
         GraficoComponent,
-        AccountSettingComponent
+        AccountSettingComponent,
+        PromesasComponent,
+        RxjsComponent
     ],
     imports: [
         SharedModule,
