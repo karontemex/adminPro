@@ -17,6 +17,10 @@ import { GraficoComponent } from '../components/grafico/grafico.component';
 import { AccountSettingComponent } from './account-setting/account-setting.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+//Pipe
+import { PipesModule } from '../pipes/pipes.module';
+import { ProfileComponent } from './profile/profile.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -28,12 +32,15 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         GraficoComponent,
         AccountSettingComponent,
         PromesasComponent,
-        RxjsComponent
+        RxjsComponent,
+        ProfileComponent
     ],
     imports: [
+        CommonModule,
         SharedModule,
         FormsModule,
         ChartsModule,
+        PipesModule,
         PAGES_ROUTES
     ],
     exports: [

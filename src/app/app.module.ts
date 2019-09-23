@@ -16,6 +16,7 @@ import { RegisterComponent } from './login/register.component';
 //servicios
 import { ServiceModule } from './services/service.module';
 
+//pipes
 
 @NgModule({
   declarations: [

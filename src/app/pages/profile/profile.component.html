@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Sample Form with the Icons</h4>
+                <h6 class="card-subtitle">made with bootstrap elements</h6>
+                <form #f="ngForm" (ngSubmit)="guardar(f.value)" class="form p-t-20" ngNativeValidate>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-user"></i></div>
+                            <input type="text" class="form-control" id="nombre" name="nombre" [ngModel]="usuario.nombre" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-group">
+                            <div class="input-group-addon"><i class="ti-email"></i></div>
+                            <input type="email" [disabled]="usuario.google" class="form-control" id="email" name="email" [ngModel]="usuario.email" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success waves-effect waves-light m-r-10 pull-right"><i class="fa fa-save"></i> Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h4 class="card-title">Fotografía del usuario</h4>
+                <img [src]="usuario.img | imagen" class="img150" *ngIf="!imagenTemp">
+                <img [src]="imagenTemp" class="img150" *ngIf="imagenTemp">
+                <input type="file" name="foto" id="foto" (change)="seleccionImagen( $event.target.files[0] )">
+                <hr>
+                <button type="button" (click)="cambiarImagen()" [disabled]="!imagenSubir" class="btn btn-block btn-success waves-effect waves-light m-r-10 pull-right"><i class="fa fa-save"></i> Cambiar</button>
+            </div>
+        </div>
+    </div>
+</div>
