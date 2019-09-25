@@ -1,0 +1,25 @@
+<div class="fondo-negro animated fadeIn " [ngClass]="_modalService.oculto">
+    <div class="modal" style="display:block;" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cambiar imagen</h5>
+                    <button (click)="cerrarModal()" type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <img [src]="'usuario.img' | imagen" class="img150" *ngIf="!imagenTemp">
+                    <img [src]="imagenTemp" class="img150" *ngIf="imagenTemp">
+                    <input type="file" name="foto" id="foto" (change)="seleccionImagen( $event.target.files[0] )">
+                    <hr>
+                    <!-- <button type="button" (click)="cambiarImagen()" [disabled]="!imagenSubir" class="btn btn-block btn-success waves-effect waves-light m-r-10 pull-right"><i class="fa fa-save"></i> Cambiar</button>     -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+                    <button type="button" class="btn btn-primary" [disabled]="!imagenTemp" (click)="subirImagen()">Subir Imagen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

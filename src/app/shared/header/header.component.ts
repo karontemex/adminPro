@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   constructor(public _usuarioService: UsuarioService) { }
 
   ngOnInit() {
-    console.log(this._usuarioService.usuario);
+   // console.log(this._usuarioService.usuario);
     this.usuario = this._usuarioService.usuario;
   }
   logout(){

@@ -10,12 +10,12 @@ import { UsuarioService } from '../usuario/usuario.service';
 export class LoginGuardGuard implements CanActivate {
   constructor(public _usuarioServicio: UsuarioService, public router: Router){}
   canActivate() {
-    console.log('Paso por Guard Login');
+   
     if(this._usuarioServicio.estaLogueado()){
       return true;
     }else{
       this.router.navigate(['/login']);
-      console.log('Block');
+      
       return false;
     }
     
