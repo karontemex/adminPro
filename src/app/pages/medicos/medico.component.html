@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Médico: nombre</h3>
+            <hr>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <form #f="ngForm" ngNativeValidate (ngSubmit)="guardarMedico(f)">
+                        <div class="form-group">
+                            <label for="nombre">Nombre del médico</label>
+                            <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="medico.nombre" placeholder="Nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="hospital">Hospital</label>
+                            <select (change)="cambioHospital( $event.target.value )" [(ngModel)]="medico.hospital" name="hospital" class="form-control" required>
+                                <option value="" selected>Seleccionar...</option>
+                                <option *ngFor="let hospital of hospitales" [value]="hospital._id">{{ hospital.nombre }}</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10"><i class="fa fa-save"> </i> Guardar</button>
+                        <button type="button" routerLink="/medicos" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-body">
+            <h4 class="box-title m-b-0">Hospital</h4>
+            <img [src]="hospital.img | imagen:'hospital'" class="img150 mx-auto d-block">
+            <h3>{{ hospital.nombre }}</h3>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card card-body" *ngIf="medico._id">
+            <h3 class="box-title m-b-0">Fotografía</h3>
+            <img [src]=" medico.img | imagen:'medico'" class="img150 mx-auto d-block pointer" (click)="mostralModal()">
+
+        </div>
+    </div>
+</div>

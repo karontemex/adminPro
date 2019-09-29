@@ -1,1 +1,62 @@
-<p>medicos works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input (keyup)="buscarMedico(input.value)" #input class="form-control " type="text" name="buscar" placeholder="Buscar Médico">
+                <br><br>
+                <button [routerLink]="['/medico','nuevo']" class="btn btn-primary pull-right" type="button"><i class="fa fa-plus"></i> Agregar Médico</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="cargando">
+    <div class="col-12">
+        <div class="alert alert-warning text-center" role="alert">
+            <strong>Cargando</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Espere por favor.</span>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="!cargando">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Medicos Registrados (
+                    <small>{{ medicoService.totalRegistros }}</small>)</h4>
+                <table class="table table-light">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Foto</th>
+                            <th>Médico</th>
+                            <th>Hospital</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let medico of medicos">
+
+                            <td class="w70">
+                                <img class="img-fluid img-circle img-50 pointer" [src]="medico.img | imagen:'medico'" alt="" (click)="mostralModal( medico._id )">
+                            </td>
+                            <td> {{ medico.nombre }}></td>
+                            <td>{{ medico.hospital.nombre }}</td>
+                            <td>
+                                <button class="btn btn-primary" type="button" [routerLink]="['/medico',medico._id]">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                                <button (click)="borrarMedico( medico )" class="btn btn-danger" type="button">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="btn btn-secondary" type="button" (click)="cambiarDesde(-5)">Anteriores</button>
+                <button class="btn btn-secondary" type="button" (click)="cambiarDesde(5)">Siguientes</button>
+            </div>
+        </div>
+    </div>
+</div>

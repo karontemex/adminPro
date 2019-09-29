@@ -32,6 +32,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { HospitalesComponent } from './hospitales/hospitales.component';
+import { MedicoComponent } from './medicos/medico.component';
 
 @NgModule({
     declarations: [
@@ -48,7 +49,8 @@ import { HospitalesComponent } from './hospitales/hospitales.component';
         UsuariosComponent,
         MedicosComponent,
         HospitalesComponent,
-        ModalUploadComponent
+        ModalUploadComponent,
+        MedicoComponent
     ],
     imports: [
         CommonModule,
