@@ -12,12 +12,13 @@ import { ModalUploadService } from './modal-upload.service';
 
 export class ModalUploadComponent implements OnInit {
   
-  
+  oculto = 'oculto';
   imagenSubir: File;
   imagenTemp: string;
   constructor(public _archivoService: SubirArchivoService, public _modalService: ModalUploadService) {  }
 
   ngOnInit() {
+    this.oculto = 'oculto';
   }
 
   cerrarModal(){

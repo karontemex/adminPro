@@ -42,9 +42,7 @@ export class LoginComponent implements OnInit {
  attachSingin( element ){
   this.auth2.attachClickHandler( element, {}, (googleUser) =>{
     let profile = googleUser.getBasicProfile();
-    console.log(profile);
     let token = googleUser.getAuthResponse().id_token;
-    console.log('Token:', token);
     this._usuarioService.loginGoogle( token )
                         .subscribe( () => this._router.navigate(['/dashboard']) );
   });
@@ -55,8 +53,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     let usuario = new Usuario(null, forma.value.email, forma.value.password); 
-     console.log(forma.valid);
-     console.log(forma.value);
+
      this._usuarioService.login(usuario, this.recuerdame)
                          .subscribe( res => this._router.navigate(['/dashboard']) );
   }
