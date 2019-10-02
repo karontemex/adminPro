@@ -8,7 +8,7 @@ import { URL_SERVICIOS } from 'src/app/config/config';
 import { Usuario } from '../../models/usuario.model';
 import { Router } from '@angular/router';
 import { SubirArchivoService } from '../subirArchivo/subir-archivo.service';
-import { throwError } from 'rxjs';
+
 
 
 
@@ -23,7 +23,21 @@ export class UsuarioService {
   constructor(public http: HttpClient, public router: Router, public _imagenService: SubirArchivoService) {
     this.cargarStorage();
   }
-  
+  renuevaToken(){
+    let url = URL_SERVICIOS + '/login/renuevatoken';
+    url += '?token=' + this.token;
+    return this.http.get(url).pipe(
+      map( ( resp: any ) =>{
+        this.token = resp.token;
+        localStorage.setItem('token', this.token);
+        return true;
+      }),
+      catchError(error => {
+        this.router.navigate(['/login']);
+        throw error;
+      })
+    );
+  }
   estaLogueado(){
     return ( this.token.length > 5 ) ? true : false;
   }

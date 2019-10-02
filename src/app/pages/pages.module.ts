@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 
 
-import { PagesComponent } from './pages.component';
+//import { PagesComponent } from './pages.component';
 // Comunes
 import { SharedModule } from '../shared/shared.module';
 
@@ -37,7 +37,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
 
 @NgModule({
     declarations: [
-        PagesComponent,
+//        PagesComponent,
         DashboardComponent,
         ProgressComponent,
         IncrementadorComponent,
@@ -50,7 +50,6 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
         UsuariosComponent,
         MedicosComponent,
         HospitalesComponent,
-        ModalUploadComponent,
         MedicoComponent,
         BusquedaComponent
     ],
@@ -63,7 +62,7 @@ import { BusquedaComponent } from './busqueda/busqueda.component';
         PAGES_ROUTES
     ],
     exports: [
-        PagesComponent,
+        //PagesComponent,
         DashboardComponent,
         ProgressComponent,
         Graficas1Component

@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcumbsComponent } from './breadcumbs/breadcumbs.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { PipesModule } from '../pipes/pipes.module';
         HeaderComponent,
         SidebarComponent,
         BreadcumbsComponent,
-        NotpagefoundComponent
+        NotpagefoundComponent,
+        ModalUploadComponent
     ],
     imports:[
         CommonModule,
@@ -25,7 +27,8 @@ import { PipesModule } from '../pipes/pipes.module';
         HeaderComponent,
         SidebarComponent,
         BreadcumbsComponent,
-        NotpagefoundComponent
+        NotpagefoundComponent,
+        ModalUploadComponent,
     ],    
     providers: [],
 })

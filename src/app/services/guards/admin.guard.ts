@@ -17,7 +17,5 @@ export class AdminGuard implements CanActivate {
       this._usuarioService.logOut();
       return false;
     }
-    
   }
-  
 }
